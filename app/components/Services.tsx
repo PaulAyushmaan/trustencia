@@ -16,6 +16,7 @@ const services = [
     timeline: "4-12 weeks",
     gradient: "from-blue-500/20 to-cyan-500/20",
     borderGradient: "from-blue-500/30 to-cyan-500/30",
+    slug: "web-app-development",
   },
   {
     title: "AI/ML Solutions",
@@ -28,6 +29,7 @@ const services = [
     timeline: "6-16 weeks",
     gradient: "from-purple-500/20 to-pink-500/20",
     borderGradient: "from-purple-500/30 to-pink-500/30",
+    slug: "ai-ml-solutions",
   },
   {
     title: "Cybersecurity Systems",
@@ -40,6 +42,7 @@ const services = [
     timeline: "3-10 weeks",
     gradient: "from-red-500/20 to-orange-500/20",
     borderGradient: "from-red-500/30 to-orange-500/30",
+    slug: "cybersecurity-systems",
   },
   {
     title: "E-Commerce Platforms",
@@ -52,6 +55,7 @@ const services = [
     timeline: "6-14 weeks",
     gradient: "from-green-500/20 to-emerald-500/20",
     borderGradient: "from-green-500/30 to-emerald-500/30",
+    slug: "ecommerce-platforms",
   },
   {
     title: "UI/UX & Branding",
@@ -64,6 +68,7 @@ const services = [
     timeline: "3-8 weeks",
     gradient: "from-indigo-500/20 to-purple-500/20",
     borderGradient: "from-indigo-500/30 to-purple-500/30",
+    slug: "ui-ux-branding",
   },
   {
     title: "SEO & Hosting",
@@ -76,6 +81,7 @@ const services = [
     timeline: "2-6 weeks",
     gradient: "from-yellow-500/20 to-orange-500/20",
     borderGradient: "from-yellow-500/30 to-orange-500/30",
+    slug: "seo-hosting",
   },
 ]
 
@@ -199,14 +205,16 @@ export default function Services() {
                   </div>
 
                   {/* CTA */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
+                  <Link href={`/services/${service.slug}`}>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg"
+                    >
+                      Learn More
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.button>
+                  </Link>
                 </div>
               </div>
             </motion.div>

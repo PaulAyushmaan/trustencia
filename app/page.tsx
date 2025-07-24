@@ -3,6 +3,7 @@ import Hero from "./components/Hero"
 import Services from "./components/Services"
 import WhyTrustencia from "./components/WhyTrustencia"
 import Projects from "./components/Projects"
+import Testimonials from "./components/Testimonials"
 import Team from "./components/Team"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <WhyTrustencia />
       <Projects />
+      <Testimonials />
       <Team />
       <Contact />
       <Footer />
