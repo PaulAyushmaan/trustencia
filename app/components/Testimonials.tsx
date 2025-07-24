@@ -1,225 +1,164 @@
 "use client"
-
-import { motion } from "framer-motion"
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 import { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
 
 const testimonials = [
   {
     id: 1,
     name: "Sarah Chen",
-    position: "CTO",
-    company: "FinTech Solutions",
-    image: "/client-1.png",
+    position: "CEO, TechFlow Solutions",
+    company: "TechFlow Solutions",
+    text: "Trustencia transformed our entire digital infrastructure. Their AI-native approach helped us reduce operational costs by 40% while improving user experience dramatically. The team's expertise in security and scalability is unmatched.",
     rating: 5,
-    text: "Trustencia transformed our legacy banking system into a modern, secure platform. Their AI-driven fraud detection has reduced false positives by 85% and improved customer satisfaction significantly.",
+    image: "/client-1.png",
   },
   {
     id: 2,
     name: "Marcus Rodriguez",
-    position: "Founder & CEO",
-    company: "HealthTech Innovations",
-    image: "/client-2.png",
+    position: "CTO, InnovateLab",
+    company: "InnovateLab",
+    text: "Working with Trustencia was a game-changer for our startup. They delivered a robust platform that scales seamlessly with our growth. Their transparent workflow and global perspective brought fresh insights to our project.",
     rating: 5,
-    text: "The telemedicine platform they built for us handles over 10,000 consultations monthly. The HIPAA-compliant architecture and intuitive UX have been game-changers for our practice.",
+    image: "/client-2.png",
   },
   {
     id: 3,
     name: "Emily Watson",
-    position: "Head of Digital",
-    company: "RetailMax",
-    image: "/client-3.png",
+    position: "Founder, GreenTech Ventures",
+    company: "GreenTech Ventures",
+    text: "The level of innovation and attention to detail Trustencia brings is exceptional. They didn't just build our platform; they helped us reimagine our entire business model. The ROI has been incredible.",
     rating: 5,
-    text: "Our e-commerce conversion rates increased by 40% after Trustencia's redesign. Their data-driven approach to UX optimization and performance improvements exceeded all expectations.",
+    image: "/client-3.png",
   },
   {
     id: 4,
     name: "David Kim",
-    position: "VP of Technology",
-    company: "EduLearn Platform",
-    image: "/client-4.png",
+    position: "Product Director, FinanceForward",
+    company: "FinanceForward",
+    text: "Trustencia's security-first approach gave us the confidence to handle sensitive financial data. Their team understood our compliance requirements and delivered a solution that exceeded all expectations.",
     rating: 5,
-    text: "The learning management system they developed scales beautifully. We went from 1,000 to 50,000 active users without any performance issues. Exceptional engineering quality.",
+    image: "/client-4.png",
   },
   {
     id: 5,
     name: "Lisa Thompson",
-    position: "Chief Marketing Officer",
-    company: "GreenEnergy Corp",
+    position: "VP of Operations, HealthSync",
+    company: "HealthSync",
+    text: "The healthcare platform Trustencia built for us has revolutionized patient care delivery. Their understanding of complex healthcare workflows and regulatory requirements is impressive.",
+    rating: 5,
     image: "/client-5.png",
-    rating: 5,
-    text: "Trustencia's SEO and digital marketing strategy increased our organic traffic by 300%. Their technical expertise combined with marketing insights delivered outstanding ROI.",
   },
-  {
-    id: 6,
-    name: "Ahmed Hassan",
-    position: "Startup Founder",
-    company: "PropTech Ventures",
-    image: "/client-6.png",
-    rating: 5,
-    text: "From MVP to Series A, Trustencia has been our technology partner. Their agile development approach and deep understanding of startup needs helped us scale rapidly.",
-  },
-  {
-    id: 7,
-    name: "Jennifer Park",
-    position: "Operations Director",
-    company: "LogiFlow Systems",
-    image: "/client-7.png",
-    rating: 5,
-    text: "The supply chain optimization platform they built using AI has reduced our operational costs by 25%. The real-time analytics dashboard provides incredible visibility.",
-  },
-  {
-    id: 8,
-    name: "Robert Johnson",
-    position: "Security Officer",
-    company: "CyberGuard Inc",
-    image: "/client-8.png",
-    rating: 5,
-    text: "Their cybersecurity implementation is top-notch. Zero security incidents in 18 months, and their 24/7 monitoring gives us complete peace of mind.",
-  },
-  {
-    id: 9,
-    name: "Maria Gonzalez",
-    position: "Product Manager",
-    company: "SocialConnect",
-    image: "/client-9.png",
-    rating: 5,
-    text: "The mobile app they developed has 4.8 stars on app stores. User engagement increased by 60% thanks to their intuitive design and smooth performance.",
-  },
-  {
-    id: 10,
-    name: "Thomas Anderson",
-    position: "CTO",
-    company: "DataInsights Pro",
-    image: "/client-10.png",
-    rating: 5,
-    text: "Their machine learning models have improved our prediction accuracy by 45%. The custom analytics dashboard provides actionable insights that drive business decisions.",
-  },
-  {
-    id: 11,
-    name: "Rachel Green",
-    position: "Brand Manager",
-    company: "CreativeStudio",
-    image: "/client-11.png",
-    rating: 5,
-    text: "The brand identity and website they created perfectly captures our vision. Our brand recognition has increased significantly, and client inquiries are up 80%.",
-  },
-  {
-    id: 12,
-    name: "Michael Brown",
-    position: "Founder",
-    company: "TechStartup Hub",
-    image: "/client-12.png",
-    rating: 5,
-    text: "Trustencia doesn't just deliver code; they deliver solutions. Their strategic thinking and technical execution have been instrumental in our company's growth.",
-  },
+]
+
+const clientImages = [
+  "/client-1.png",
+  "/client-2.png",
+  "/client-3.png",
+  "/client-4.png",
+  "/client-5.png",
+  "/client-6.png",
+  "/client-7.png",
+  "/client-8.png",
+  "/client-9.png",
+  "/client-10.png",
+  "/client-11.png",
+  "/client-12.png",
 ]
 
 export default function Testimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
     }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+    setIsAutoPlaying(false)
   }
 
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+    setIsAutoPlaying(false)
   }
 
-  const goToTestimonial = (index: number) => {
-    setCurrentTestimonial(index)
-  }
+  const currentReview = testimonials[currentTestimonial]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-950 dark:via-black dark:to-blue-950/20">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-block mb-6"
-          >
-            <span className="px-4 py-2 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-sm font-medium border border-orange-500/20">
-              Client Success Stories
-            </span>
-          </motion.div>
-
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 text-gray-900 dark:text-white">
-            What Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Clients</span>{" "}
-            Say
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            What Our Clients Say
           </h2>
-
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            Real feedback from businesses we've helped transform through innovative technology solutions.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Trusted by innovative companies worldwide to deliver exceptional digital solutions
           </p>
-        </motion.div>
+        </div>
 
-        {/* Main Content - 50/50 Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto">
           {/* Left Side - Testimonial Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            {/* Current Testimonial */}
-            <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-2 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-                ))}
-              </div>
-
-              <Quote className="w-12 h-12 text-orange-500 mb-6" />
-
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                "{testimonials[currentTestimonial].text}"
-              </p>
-
-              <div className="flex items-center gap-4">
-                <img
-                  src={testimonials[currentTestimonial].image || "/placeholder.svg"}
-                  alt={testimonials[currentTestimonial].name}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    {testimonials[currentTestimonial].name}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400">{testimonials[currentTestimonial].position}</p>
-                  <p className="text-orange-600 dark:text-orange-400 font-medium">
-                    {testimonials[currentTestimonial].company}
-                  </p>
+          <div className="space-y-8">
+            <Card className="border-0 shadow-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm h-[500px] flex flex-col">
+              <CardContent className="p-8 flex flex-col h-full">
+                {/* Quote Icon */}
+                <div className="mb-6">
+                  <Quote className="w-12 h-12 text-orange-500" />
                 </div>
-              </div>
-            </div>
+
+                {/* Rating */}
+                <div className="flex items-center mb-6">
+                  {[...Array(currentReview.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <blockquote className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 font-medium flex-1">
+                  "{currentReview.text}"
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex items-center space-x-4 mt-auto">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-orange-200 dark:border-orange-800">
+                    <Image
+                      src={currentReview.image || "/placeholder.svg"}
+                      alt={currentReview.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-lg">{currentReview.name}</h4>
+                    <p className="text-gray-600 dark:text-gray-400">{currentReview.position}</p>
+                    <p className="text-orange-600 dark:text-orange-400 font-medium">{currentReview.company}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Navigation Controls */}
             <div className="flex items-center justify-between">
-              <div className="flex gap-2">
+              <div className="flex space-x-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => goToTestimonial(index)}
+                    onClick={() => {
+                      setCurrentTestimonial(index)
+                      setIsAutoPlaying(false)
+                    }}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentTestimonial
                         ? "bg-orange-500 w-8"
@@ -229,99 +168,67 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <div className="flex gap-2">
-                <button
+              <div className="flex space-x-2">
+                <Button
+                  variant="outline"
+                  size="sm"
                   onClick={prevTestimonial}
-                  className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  className="border-orange-200 hover:bg-orange-50 dark:border-orange-800 dark:hover:bg-orange-950 bg-transparent"
                 >
-                  <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                </button>
-                <button
+                  <ChevronLeft className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
                   onClick={nextTestimonial}
-                  className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  className="border-orange-200 hover:bg-orange-50 dark:border-orange-800 dark:hover:bg-orange-950 bg-transparent"
                 >
-                  <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                </button>
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right Side - Client Pictures Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            {/* Stats Overlay */}
-            <div className="absolute top-4 left-4 z-10">
-              <div className="bg-white/90 dark:bg-black/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">500+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</div>
+          {/* Right Side - Client Images Grid */}
+          <div className="relative">
+            <div className="h-[500px] bg-white/50 dark:bg-gray-900/50 rounded-2xl p-6 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50">
+              {/* Client Images Grid */}
+              <div className="grid grid-cols-4 gap-3 h-full">
+                {clientImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`relative aspect-square rounded-xl overflow-hidden transition-all duration-300 ${
+                      index === currentTestimonial ? "ring-3 ring-orange-400 scale-105 z-10" : "hover:scale-105"
+                    }`}
+                  >
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`Client ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                    {index === currentTestimonial && (
+                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full border-2 border-white dark:border-gray-900">
+                        <div className="w-full h-full bg-orange-500 rounded-full animate-pulse" />
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
-
-            <div className="absolute top-4 right-4 z-10">
-              <div className="bg-white/90 dark:bg-black/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">98%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Satisfaction Rate</div>
-              </div>
-            </div>
-
-            {/* Client Pictures Grid */}
-            <div className="grid grid-cols-4 gap-4 p-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.id}
-                  className={`relative cursor-pointer transition-all duration-300 ${
-                    index === currentTestimonial ? "ring-4 ring-orange-500 scale-110 z-10" : "hover:scale-105"
-                  }`}
-                  onClick={() => goToTestimonial(index)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <img
-                    src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
-                    className="w-full h-20 object-cover rounded-2xl shadow-lg"
-                  />
-                  {index === currentTestimonial && (
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full" />
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-20"
-        >
-          <div className="bg-gradient-to-r from-orange-500/10 via-red-600/5 to-orange-500/10 rounded-3xl p-12 border border-orange-500/20">
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Ready to Join Our Success Stories?
-            </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-              Let's create something amazing together and add your testimonial to our growing list of satisfied clients.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300"
-            >
-              Start Your Project Today
-            </motion.button>
-          </div>
-        </motion.div>
+        <div className="text-center mt-16">
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">Ready to join our satisfied clients?</p>
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            Start Your Project Today
+          </Button>
+        </div>
       </div>
     </section>
   )
