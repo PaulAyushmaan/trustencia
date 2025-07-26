@@ -9,7 +9,7 @@ const services = [
     description: "Transform your ideas into powerful digital experiences with our cutting-edge development expertise.",
     longDescription:
       "Our web and app development services combine cutting-edge technology with user-centered design to create digital experiences that drive business growth. We specialize in full-stack development using modern frameworks like React, Next.js, and Node.js, ensuring your applications are fast, scalable, and maintainable.",
-    image: "/web-development-workspace.png",
+    image: "/webD.png",
     features: [
       "React & Next.js Development",
       "Mobile-First Responsive Design",
@@ -38,7 +38,7 @@ const services = [
     description: "Harness the power of artificial intelligence to automate processes and unlock valuable insights.",
     longDescription:
       "Our AI/ML solutions help businesses leverage artificial intelligence to automate complex processes, gain valuable insights from data, and create intelligent user experiences. From custom machine learning models to natural language processing and computer vision applications.",
-    image: "/ai-machine-learning-dashboard.png",
+    image: "/aiml.jpg",
     features: [
       "Custom Machine Learning Models",
       "Natural Language Processing",
@@ -76,7 +76,7 @@ const services = [
     description: "Protect your digital assets with enterprise-grade security solutions built from the ground up.",
     longDescription:
       "Our cybersecurity services provide comprehensive protection for your digital infrastructure. We implement zero-trust architecture, advanced threat detection, and compliance-ready security frameworks to safeguard your business from modern cyber threats.",
-    image: "/cybersecurity-monitoring-dashboard.png",
+    image: "/cyber-security.png",
     features: [
       "Zero-Trust Architecture",
       "Advanced Threat Detection",
@@ -114,7 +114,7 @@ const services = [
     description: "Build powerful e-commerce experiences that drive sales and customer satisfaction.",
     longDescription:
       "Our e-commerce solutions are designed to maximize conversions and provide seamless shopping experiences. We build scalable online stores with integrated payment systems, inventory management, and analytics to help your business grow.",
-    image: "/ecommerce-platform-interface.png",
+    image: "/ecommerce.jpg",
     features: [
       "Custom E-commerce Development",
       "Payment Gateway Integration",
@@ -152,7 +152,7 @@ const services = [
     description: "Create memorable brand experiences through thoughtful design and user-centered principles.",
     longDescription:
       "Our UI/UX and branding services focus on creating intuitive, accessible, and visually compelling experiences that resonate with your target audience. We combine user research, design thinking, and brand strategy to deliver cohesive digital experiences.",
-    image: "/ui-ux-design-process.png",
+    image: "/ui.png",
     features: [
       "User Experience Research",
       "Design System Development",
@@ -181,7 +181,7 @@ const services = [
     description: "Maximize your online visibility and performance with our comprehensive SEO and hosting solutions.",
     longDescription:
       "Our SEO and hosting services ensure your website performs optimally and ranks well in search engines. We provide technical SEO, content optimization, and high-performance hosting solutions to maximize your online presence.",
-    image: "/seo-analytics-dashboard.png",
+    image: "/seo.jpg",
     features: [
       "Technical SEO Optimization",
       "Performance & Speed Optimization",

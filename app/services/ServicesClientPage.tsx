@@ -13,7 +13,7 @@ const services = [
       "Transform your digital presence with cutting-edge web applications and mobile solutions. We build responsive, performant, and user-centric applications using the latest technologies and best practices.",
     detailedDescription:
       "Our development team specializes in creating robust, scalable applications that grow with your business. From concept to deployment, we handle every aspect of the development lifecycle with precision and expertise.",
-    image: "/web-development-workspace.png",
+    image: "/webD.png",
     features: [
       "React, Next.js, and Vue.js frontend development",
       "Node.js, Python, and FastAPI backend systems",
@@ -47,7 +47,7 @@ const services = [
       "Harness the power of artificial intelligence to automate processes, gain insights, and create intelligent user experiences. Our AI solutions are tailored to your specific business needs and objectives.",
     detailedDescription:
       "We develop custom machine learning models, natural language processing systems, and computer vision applications that transform how businesses operate and interact with their customers.",
-    image: "/ai-machine-learning-dashboard.png",
+    image: "/aiml.jpg",
     features: [
       "Custom machine learning model development and training",
       "Natural Language Processing (NLP) and chatbot systems",
@@ -81,7 +81,7 @@ const services = [
       "Build secure applications from the ground up with our comprehensive cybersecurity approach. We implement enterprise-grade security measures without compromising on performance or user experience.",
     detailedDescription:
       "Our security experts ensure your applications are protected against modern threats through penetration testing, secure coding practices, and continuous monitoring systems.",
-    image: "/cybersecurity-monitoring-dashboard.png",
+    image: "/cyber-security.png",
     features: [
       "Security audits and penetration testing services",
       "Secure authentication and authorization systems",
@@ -115,7 +115,7 @@ const services = [
       "Create powerful e-commerce experiences that drive sales and customer satisfaction. Our platforms are built for scale, performance, and conversion optimization.",
     detailedDescription:
       "We develop custom e-commerce solutions that handle everything from product catalogs and inventory management to payment processing and customer analytics.",
-    image: "/ecommerce-platform-interface.png",
+    image: "/ecommerce.jpg",
     features: [
       "Custom e-commerce platform development",
       "Multi-payment gateway integration (Stripe, PayPal, etc.)",
@@ -149,7 +149,7 @@ const services = [
       "Create memorable brand experiences through thoughtful design and user-centered principles. Our design team combines aesthetic excellence with usability research.",
     detailedDescription:
       "We craft comprehensive design systems that ensure consistency across all touchpoints while delivering exceptional user experiences that drive engagement and conversion.",
-    image: "/ui-ux-design-process.png",
+    image: "/ui.png",
     features: [
       "User experience (UX) research and design strategy",
       "User interface (UI) design and interactive prototyping",
@@ -183,7 +183,7 @@ const services = [
       "Maximize your online visibility and performance with our comprehensive SEO and hosting solutions. We ensure your website ranks well and loads fast globally.",
     detailedDescription:
       "Our SEO experts combine technical optimization with content strategy to improve your search rankings, while our hosting solutions ensure optimal performance and reliability.",
-    image: "/seo-analytics-dashboard.png",
+    image: "/seo.jpg",
     features: [
       "Technical SEO optimization and site audits",
       "Content strategy development and optimization",
