@@ -141,7 +141,7 @@ export default function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {founders.map((founder, index) => (
             <motion.div
               key={founder.name}
@@ -149,15 +149,15 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="group relative h-full"
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${founder.gradient} rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100`}
               />
 
-              <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-800">
+              <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-800 h-full flex flex-col">
                 {/* Image Section */}
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden flex-shrink-0">
                   <img
                     src={founder.image || "/placeholder.svg"}
                     alt={founder.name}
@@ -215,23 +215,25 @@ export default function Team() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{founder.name}</h3>
-                    <p className="text-lg text-green-600 dark:text-green-400 font-medium mb-2">{founder.title}</p>
-                    <p className="text-gray-600 dark:text-gray-400 italic">"{founder.tagline}"</p>
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{founder.name}</h3>
+                    <p className="text-base text-green-600 dark:text-green-400 font-medium mb-2">{founder.title}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 italic">"{founder.tagline}"</p>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{founder.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed flex-1">
+                    {founder.description}
+                  </p>
 
                   {/* Expertise */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Expertise</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="mb-4">
+                    <h4 className="text-xs font-semibold text-gray-900 dark:text-white mb-2">Expertise</h4>
+                    <div className="flex flex-wrap gap-1">
                       {founder.expertise.slice(0, 3).map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
+                          className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
                         >
                           {skill}
                         </span>
@@ -240,12 +242,12 @@ export default function Team() {
                   </div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 mt-auto">
                     {Object.entries(founder.stats)
                       .slice(0, 4)
                       .map(([key, value], idx) => (
-                        <div key={key} className="text-center p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
-                          <div className="text-lg font-bold text-green-600 dark:text-green-400">{value}</div>
+                        <div key={key} className="text-center p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+                          <div className="text-sm font-bold text-green-600 dark:text-green-400">{value}</div>
                           <div className="text-xs text-gray-500 capitalize">
                             {key.replace(/([A-Z])/g, " $1").trim()}
                           </div>

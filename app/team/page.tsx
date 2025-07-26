@@ -10,7 +10,7 @@ const founders = [
     name: "Alex Chen",
     title: "Co-Founder & CTO",
     tagline: "AI + Trust enthusiast",
-    image: "/male-tech-founder-headshot.png",
+    image: "/shah_alam.jpeg",
     bio: "Alex is a seasoned technology leader with over 12 years of experience in building scalable AI systems. He holds a PhD in Computer Science from MIT and has previously led engineering teams at Google and Tesla. His expertise spans machine learning, distributed systems, and cybersecurity.",
     location: "San Francisco, CA",
     joinDate: "January 2022",

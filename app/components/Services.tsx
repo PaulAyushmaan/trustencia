@@ -132,15 +132,15 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="group relative h-full"
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100`}
               />
 
-              <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-800 group-hover:border-transparent">
+              <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-800 group-hover:border-transparent h-full flex flex-col">
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden flex-shrink-0">
                   <img
                     src={service.image || "/placeholder.svg"}
                     alt={service.title}
@@ -169,12 +169,12 @@ export default function Services() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-8 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 transition-all duration-300">
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{service.description}</p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed flex-1">{service.description}</p>
 
                   {/* Features */}
                   <div className="space-y-2 mb-6">
@@ -205,7 +205,7 @@ export default function Services() {
                   </div>
 
                   {/* CTA */}
-                  <Link href={`/services/${service.slug}`}>
+                  <Link href={`/services/${service.slug}`} className="mt-auto">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
