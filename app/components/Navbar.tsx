@@ -54,8 +54,8 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
           >
             <span className="text-xl md:text-2xl font-bold text-black dark:text-white">
-              trustencia
-              <span className="inline-block w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-500 rounded-full ml-1" />
+              <img src="/trustencia.png" width={40} alt="" />
+              {/* <span className="inline-block w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-500 rounded-full ml-1" /> */}
             </span>
           </motion.div>
 
