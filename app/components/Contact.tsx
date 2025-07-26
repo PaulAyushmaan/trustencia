@@ -66,6 +66,7 @@ export default function Contact() {
       href: "https://wa.me/7439387013",
       gradient: "from-green-500/20 to-emerald-500/20",
       iconColor: "text-green-500",
+      target: "_blank",
     },
     {
       icon: Calendar,
@@ -75,6 +76,7 @@ export default function Contact() {
       href: "https://calendly.com/paulayushmaan2004",
       gradient: "from-blue-500/20 to-cyan-500/20",
       iconColor: "text-blue-500",
+      target: "_blank",
     },
     {
       icon: Mail,
@@ -84,6 +86,7 @@ export default function Contact() {
       href: "mailto:paulayushmaan2004@gmail.com",
       gradient: "from-purple-500/20 to-pink-500/20",
       iconColor: "text-purple-500",
+      target: "_blank",
     },
   ]
 
