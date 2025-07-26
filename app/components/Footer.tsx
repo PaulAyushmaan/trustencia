@@ -3,8 +3,10 @@
 import { motion } from "framer-motion"
 import { Linkedin, Github, Twitter, Mail } from "lucide-react"
 import Link from "next/link"
+import { useTheme } from "../contexts/ThemeContext"
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer className="bg-gray-100 dark:bg-black border-t border-gray-200 dark:border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -17,8 +19,7 @@ export default function Footer() {
               viewport={{ once: true }}
             >
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                trustencia
-                <span className="inline-block w-2 h-2 bg-orange-500 rounded-full ml-1" />
+                <img src={theme === "dark" ? "/trustenciahero.png" : "/trustencia-lighthero.jpeg"} width={156} height={30} alt="" />
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md text-sm sm:text-base">
                 AI-first, secure digital products. Full-stack development from India. Globally trusted.

@@ -28,9 +28,9 @@ export default function Hero() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-black dark:text-white"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.0 }}
             >
-              <img src={theme === "dark" ? "/trustenciahero.png" : "/trustencia-lighthero.png"} width={500} height={110} alt="" />
+              <img src={theme === "dark" ? "/trustenciahero.png" : "/trustencia-lighthero.jpeg"} width={500} height={110} alt="" />
               
             </motion.h1>
           </div>
@@ -42,8 +42,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="space-y-6 mb-12"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-gray-600 dark:text-gray-200 leading-relaxed">
-            Built on <span className="font-semibold text-orange-500">Trust</span>. Driven by Intelligence.
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 dark:text-gray-200 leading-relaxed">
+            Built on <span className="font-semibold text-orange-500">Trust</span>. Driven by <span className="font-semibold text-orange-500">Intelligence</span>.
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Crafting AI-first, security-aware, full-stack digital solutions that transform ideas into powerful, scalable
