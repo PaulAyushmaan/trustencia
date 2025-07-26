@@ -7,10 +7,10 @@ import Navbar from "../components/Navbar"
 
 const founders = [
   {
-    name: "Alex Chen",
+    name: "Ayushmaan Paul",
     title: "Co-Founder & CTO",
     tagline: "AI + Trust enthusiast",
-    image: "/shah_alam.jpeg",
+    image: "/ayushmaan.jpeg",
     bio: "Alex is a seasoned technology leader with over 12 years of experience in building scalable AI systems. He holds a PhD in Computer Science from MIT and has previously led engineering teams at Google and Tesla. His expertise spans machine learning, distributed systems, and cybersecurity.",
     location: "San Francisco, CA",
     joinDate: "January 2022",
@@ -35,10 +35,10 @@ const founders = [
     ],
   },
   {
-    name: "Priya Sharma",
+    name: "Sourik Mondal",
     title: "Co-Founder & CEO",
     tagline: "Product visionary & growth hacker",
-    image: "/female-tech-founder-headshot.png",
+    image: "/sourik.jpeg",
     bio: "Priya is a visionary leader who combines deep technical knowledge with exceptional business acumen. With an MBA from Stanford and 10+ years in product management at companies like Airbnb and Stripe, she excels at turning complex ideas into market-winning products.",
     location: "Mumbai, India",
     joinDate: "January 2022",
@@ -63,10 +63,10 @@ const founders = [
     ],
   },
   {
-    name: "Raj Patel",
+    name: "Shah Alam",
     title: "Co-Founder & CPO",
     tagline: "Design thinking meets engineering",
-    image: "/male-product-designer-headshot.png",
+    image: "/shah_alam.jpeg",
     bio: "Raj bridges the gap between beautiful design and robust engineering. With a background in both computer science and industrial design from RISD, he has spent 8+ years creating award-winning digital experiences at companies like Apple and Figma.",
     location: "London, UK",
     joinDate: "March 2022",
@@ -91,10 +91,10 @@ const founders = [
     ],
   },
   {
-    name: "Sarah Kim",
+    name: "Soham Roy",
     title: "Co-Founder & CSO",
     tagline: "Security-first mindset",
-    image: "/female-security-expert-headshot.png",
+    image: "/soham.png",
     bio: "Sarah is a cybersecurity expert with a passion for building secure, privacy-first systems. With a Master's in Cybersecurity from Carnegie Mellon and 9+ years at companies like Palantir and CrowdStrike, she ensures our solutions meet the highest security standards.",
     location: "Seoul, South Korea",
     joinDate: "February 2022",

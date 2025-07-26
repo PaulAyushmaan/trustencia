@@ -6,11 +6,11 @@ import Link from "next/link"
 
 const founders = [
   {
-    name: "Alex Chen",
+    name: "Ayushmaan Paul",
     title: "Co-Founder & CTO",
     tagline: "AI + Trust enthusiast",
     description: "Visionary technologist with 12+ years building scalable AI systems at Google and Tesla.",
-    image: "/male-tech-founder-headshot.png",
+    image: "/ayushmaan.jpeg",
     location: "San Francisco, CA",
     experience: "12+ Years",
     expertise: ["AI/ML", "Distributed Systems", "Cybersecurity", "Cloud Architecture"],
@@ -29,11 +29,11 @@ const founders = [
     gradient: "from-blue-500/20 to-cyan-500/20",
   },
   {
-    name: "Priya Sharma",
+    name: "Sourik Mondal",
     title: "Co-Founder & CEO",
     tagline: "Product visionary & growth hacker",
     description: "Strategic leader combining technical expertise with business acumen from Airbnb and Stripe.",
-    image: "/female-tech-founder-headshot.png",
+    image: "/sourik.jpeg",
     location: "Mumbai, India",
     experience: "10+ Years",
     expertise: ["Product Strategy", "Growth Hacking", "Business Development", "User Experience"],
@@ -52,11 +52,11 @@ const founders = [
     gradient: "from-purple-500/20 to-pink-500/20",
   },
   {
-    name: "Raj Patel",
+    name: "Shah Alam",
     title: "Co-Founder & CPO",
     tagline: "Design thinking meets engineering",
     description: "Creative technologist bridging design and engineering with experience from Apple and Figma.",
-    image: "/male-product-designer-headshot.png",
+    image: "/shah_alam.jpeg",
     location: "London, UK",
     experience: "8+ Years",
     expertise: ["Product Design", "User Experience", "Design Systems", "Frontend Engineering"],
@@ -75,12 +75,12 @@ const founders = [
     gradient: "from-green-500/20 to-emerald-500/20",
   },
   {
-    name: "Sarah Kim",
+    name: "Soham Roy",
     title: "Co-Founder & CSO",
     tagline: "Security-first mindset",
     description:
       "Cybersecurity expert ensuring enterprise-grade security with experience from Palantir and CrowdStrike.",
-    image: "/female-security-expert-headshot.png",
+    image: "/soham.png",
     location: "Seoul, South Korea",
     experience: "9+ Years",
     expertise: ["Cybersecurity", "Privacy Engineering", "Compliance", "Risk Management"],
