@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
+    "@emailjs/browser": "latest",
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "latest",
@@ -55,7 +55,7 @@
     "react-day-picker": "latest",
     "react-dom": "^19",
     "react-hook-form": "latest",
-    "react-hot-toast": "^2.5.2",
+    "react-hot-toast": "latest",
     "react-resizable-panels": "latest",
     "recharts": "latest",
     "shadcn": "latest",

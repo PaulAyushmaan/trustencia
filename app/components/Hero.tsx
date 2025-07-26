@@ -28,13 +28,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              trustencia
-              <motion.span
-                className="inline-block w-3 h-3 md:w-4 md:h-4 bg-orange-500 rounded-full ml-1"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 1, type: "spring", stiffness: 200 }}
-              />
+              <img src="/trustenciahero.png" width={500} height={110} alt="" />
+              
             </motion.h1>
           </div>
         </motion.div>
