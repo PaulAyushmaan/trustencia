@@ -1,11 +1,15 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useRef,useState } from "react"
 import { motion } from "framer-motion"
 import { Send, MessageCircle, Calendar, Mail, MapPin, Clock, CheckCircle, Star } from "lucide-react"
+import emailjs from "@emailjs/browser"
+import { toast } from "react-hot-toast"
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null)
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,25 +17,9 @@ export default function Contact() {
     budget: "",
     message: "",
   })
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Reset form after success animation
-    setTimeout(() => {
-      setFormData({ name: "", email: "", company: "", budget: "", message: "" })
-      setIsSubmitted(false)
-    }, 3000)
-  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({
@@ -40,13 +28,42 @@ export default function Contact() {
     }))
   }
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      if (!formRef.current) return
+
+      const result = await emailjs.sendForm(
+        "service_ockbrso",     // ✅ Replace with your EmailJS service ID
+        "template_h8110pi",    // ✅ Replace with your EmailJS template ID
+        formRef.current,
+        "tYVO0zVGnKZ8341yG"      // ✅ Replace with your EmailJS public key
+      )
+
+      console.log("Email sent successfully:", result.status, result.text)
+      toast.success("Message sent successfully!")
+
+      setIsSubmitted(true)
+      setFormData({ name: "", email: "", company: "", budget: "", message: "" })
+
+      setTimeout(() => setIsSubmitted(false), 3000)
+    } catch (error) {
+      console.error("Email sending failed:", error)
+      toast.error("Failed to send message. Try again later.")
+    }
+
+    setIsSubmitting(false)
+  }
+
   const contactMethods = [
     {
       icon: MessageCircle,
       title: "WhatsApp Chat",
       description: "Quick responses and real-time updates",
       action: "Chat Now",
-      href: "https://wa.me/1234567890",
+      href: "https://wa.me/7439387013",
       gradient: "from-green-500/20 to-emerald-500/20",
       iconColor: "text-green-500",
     },
@@ -55,7 +72,7 @@ export default function Contact() {
       title: "Schedule a Call",
       description: "Book a free 30-minute consultation",
       action: "Book Meeting",
-      href: "https://calendly.com/trustencia",
+      href: "https://calendly.com/paulayushmaan2004",
       gradient: "from-blue-500/20 to-cyan-500/20",
       iconColor: "text-blue-500",
     },
@@ -64,7 +81,7 @@ export default function Contact() {
       title: "Email Us",
       description: "Detailed project discussions",
       action: "Send Email",
-      href: "mailto:hello@trustencia.com",
+      href: "mailto:paulayushmaan2004@gmail.com",
       gradient: "from-purple-500/20 to-pink-500/20",
       iconColor: "text-purple-500",
     },
@@ -153,7 +170,7 @@ export default function Contact() {
             <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border border-gray-200 dark:border-gray-800">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Start Your Project</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" ref={formRef}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
