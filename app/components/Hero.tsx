@@ -1,8 +1,10 @@
 "use client"
 import { motion } from "framer-motion"
 import AnimatedBackground from "./AnimatedBackground"
+import { useTheme } from "../contexts/ThemeContext"
 
 export default function Hero() {
+  const { theme } = useTheme();
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
   }
@@ -28,7 +30,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img src="/trustenciahero.png" width={500} height={110} alt="" />
+              <img src={theme === "dark" ? "/trustenciahero.png" : "/trustencia-lighthero.png"} width={500} height={110} alt="" />
               
             </motion.h1>
           </div>
